@@ -3,7 +3,7 @@ import { updateValueOnScreen } from '../reducers/calcreducer'
 function PrimaryButton(props) {
     const dispatchClickedButtonValue = useDispatch();
     const ifClicked=()=>{
-      dispatchClickedButtonValue(updateValueOnScreen())
+      dispatchClickedButtonValue(updateValueOnScreen(props.buttonText))
     };
     return (<button className="
     bg-blue-500

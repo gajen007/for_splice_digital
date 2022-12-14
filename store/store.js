@@ -3,6 +3,6 @@ import updateScreenReducer from '../reducers/calcreducer'
 
 export default configureStore({
   reducer: {
-    valueOnScreen: updateScreenReducer
+    forValueOnScreen: updateScreenReducer
   }
 })

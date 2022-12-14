@@ -1,17 +1,17 @@
 import { useDispatch } from 'react-redux'
-import { setSelectedOperation } from '../reducers/calcreducer'
-function OperatorButton(props) {
+import { doCalculation } from '../reducers/calcreducer'
+function EqualButton(props) {
   const dispatchClickedButtonValue = useDispatch();
     const ifClicked=()=>{
-      dispatchClickedButtonValue(setSelectedOperation(props.buttonText))
+      dispatchClickedButtonValue(doCalculation())
     };
     return (<button className="
-    bg-orange-500
-    hover:bg-orange-700
+    bg-green-500
+    hover:bg-green-700
     text-white
     font-bold
     py-2
     px-4
     rounded" onClick={ifClicked}>{props.buttonText}</button>);
   }
-export default OperatorButton
+export default EqualButton
