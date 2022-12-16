@@ -3,8 +3,9 @@ import GraphCard from "../components/GraphCard";
 import TableCard from "../components/TableCard";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/SideBar";
+import { faCloud,faTemperatureUp,faTemperatureDown,faDroplet } from '@fortawesome/free-solid-svg-icons'
 
-function CalculatorPage() {
+function DashboardPage() {
     return (
         <>
         <Navbar/>
@@ -17,15 +18,17 @@ function CalculatorPage() {
                         <h1 className="font-bold pl-2">Dashboard</h1>
                     </div>
                 </div>
-                <div className="flex flex-wrap">
-                    <IndicaterCard dataName="Total Revenue" dataValue="$ 3249"/>
-                    <IndicaterCard dataName="Total Users" dataValue="250"/>
-                    <IndicaterCard dataName="New Users" dataValue="2"/>
-                    <IndicaterCard dataName="Server Uptime" dataValue="152 Days"/>
+                <div className="flex flex-wrap flex-grow mt-4">
+                    <IndicaterCard fontAwesomeIcon={faTemperatureUp} dataName="Max" widgetColorFrom="from-red-200" widgetColorTo="to-red-100" borderColor="border-red-500" iconColor="bg-red-500" dataColor="text-red-600" valueColor="text-red-600" dataValue="6&deg;C"/>
+                    <IndicaterCard fontAwesomeIcon={faTemperatureDown} dataName="Min" widgetColorFrom="from-green-200" widgetColorTo="to-green-100" borderColor="border-green-500" iconColor="bg-green-500" dataColor="text-green-600" valueColor="text-green-600" dataValue="-4&deg;C"/>
+                    <IndicaterCard fontAwesomeIcon={faDroplet} dataName="Humidity" widgetColorFrom="from-blue-200" widgetColorTo="to-blue-100" borderColor="border-blue-500" iconColor="bg-blue-500" dataColor="text-blue-600" valueColor="text-blue-600" dataValue="79%"/>
+                    <IndicaterCard fontAwesomeIcon={faCloud} dataName="Sky" widgetColorFrom="from-yellow-200" widgetColorTo="to-yellow-100" borderColor="border-yellow-500" iconColor="bg-yellow-500" dataColor="text-yellow-600" valueColor="text-yellow-600" dataValue="Cloudy"/>
                 </div>
                  <div className="flex flex-row flex-wrap flex-grow mt-2">
                     <TableCard/>
-                    <GraphCard heading="Graph"/>
+                    
+                    <GraphCard/>
+
                 </div>
             </div>
         </section>
@@ -33,4 +36,4 @@ function CalculatorPage() {
         </>
         );
   }
-    export default CalculatorPage    
+export default DashboardPage    

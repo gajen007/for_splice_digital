@@ -2,14 +2,13 @@ import { useState } from "react";
 import DropDown from "./DropDown";
 
 function Navbar() {
-    const [classListForDD,toggleClassListForDD] = useState("dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible");
+    const [visibleState,switchVisibility] = useState("invisible");
     const toggleDropDown=()=>{
-        var classesOfDropDown=classListForDD.split(" ");
-        if (classesOfDropDown.includes("invisible")) {
-            toggleClassListForDD("dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30")    
+        if (visibleState==="invisible") {
+            switchVisibility(""); 
         }
         else{
-            toggleClassListForDD("dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible")
+            switchVisibility("invisible");
         }
     }
 
@@ -52,7 +51,7 @@ function Navbar() {
                         <div className="relative inline-block">
                             <button onClick={toggleDropDown} className="drop-button text-white py-2 px-2"> <span className="pr-2"><i className="em em-robot_face"></i></span> Hi, Gajen <svg className="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg></button>
-                            <DropDown classList={classListForDD}/>
+                            <DropDown visibility={visibleState}/>
                         </div>
                     </li>
                 </ul>
